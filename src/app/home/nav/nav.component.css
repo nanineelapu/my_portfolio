@@ -26,32 +26,86 @@
     backdrop-filter: blur(2px);
 }
 
-
-/* Logo */
-.logo {
-    color: white;
-    font-size: 22px;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-.logo i {
-    font-size: 3vw;
-}
-
-/* Center Navigation */
-.nav-links {
-    list-style: none;
+.navbar {
     display: flex;
-    gap: 6.5vw;
+    align-items: center;
+    /* This ensures all children are vertically centered */
+    justify-content: space-between;
+    /* This will space out the logo, nav-links, and resume button */
+    padding: 0 2rem;
+    /* ... other existing styles ... */
 }
 
-.nav-links a {
+/* Center the nav-links container */
+.nav-links {
+    display: flex;
+    align-items: center;
+    /* Vertically center the links */
+    gap: 6vw;
+    margin: 0;
+    /* Remove any default margins */
+    padding: 0;
+    font-weight: 700;
+    /* Remove any default padding */
+    list-style: none;
+}
+
+/* Ensure the logo and resume button are properly aligned */
+.logo,
+.resume-btn {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    /* Make them take full height of navbar */
+}
+
+/* Adjust the logo icon size if needed */
+.logo a {
+    font-size: 2.5vw;
     text-decoration: none;
-    color: #fff;
-    font-weight: 600;
-    font-size: 16px;
+    font-weight: 800;
+    /* Slightly reduced from 3vw for better balance */
+}
+
+/* Ensure the resume button has proper vertical alignment */
+.resume-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    /* Fixed height for better control */
+    margin: 0;
+    /* Remove any default margins */
+}
+
+/* In nav.component.css */
+.navbar:not(.dark) .nav-links a,
+.navbar:not(.dark) .logo {
+    color: white;
+}
+
+.navbar.dark .nav-links a,
+.navbar.dark .logo {
+    color: black;
+}
+
+/* Ensure text is visible on all sections */
+.nav-links a {
     transition: color 0.3s ease;
+}
+
+.logo {
+    transition: color 0.3s ease;
+}
+
+/* Add a class for dark logo */
+.navbar.dark .logo {
+    color: #000;
+}
+
+/* Add this to ensure smooth transitions */
+.navbar {
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
 }
 
 .nav-links a:hover {

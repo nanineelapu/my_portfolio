@@ -14,12 +14,11 @@
  section {
 
      padding: 100vw 4.7vw;
-     background-color: #222;
  }
 
  #services {
-     height: 130vh;
-     background-color: #222;
+     height: 165vh;
+     background-color: #111;
      padding: 6.5vw 4vw;
      margin-top: 8vw;
  }
@@ -68,26 +67,73 @@
      letter-spacing: 0.5px;
  }
 
- .content .one {
-     width: 50%;
-     height: 30vw;
-     display: flex;
+ .content {
+     display: grid;
+     grid-template-columns: repeat(2, minmax(0, 1fr));
+     gap: 2vw;
+     margin-top: 3vw;
+     margin-left: 2vw;
+     align-items: stretch;
  }
 
  .card {
-     width: 70%;
-     height: 18vw;
+     width: 95%;
+     height: 52vh;
      display: flex;
      flex-direction: column;
      align-items: center;
-     border: 1.4px solid #fff;
-     color: #fff;
-     border-radius: 10px;
-     margin: 1vw;
-     padding: 1.2vw;
-     gap: 1vw;
-     background-color: #111;
 
+     padding: 1.4vw;
+     gap: 1vw;
+
+     /* Core look */
+     background: linear-gradient(180deg,
+             #262626 0%,
+             #1c1c1c 100%);
+
+     color: #ffffff;
+     border-radius: 14px;
+
+     /* Soft edge light */
+     border: 1px solid rgba(255, 255, 255, 0.06);
+
+     /* Layered shadow (THIS is what makes it premium) */
+     box-shadow:
+         0 6px 18px rgba(0, 0, 0, 0.55),
+         0 12px 35px rgba(0, 0, 0, 0.45),
+         inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+     /* Smoothness */
+     transition:
+         transform 0.35s ease,
+         box-shadow 0.35s ease,
+         border-color 0.35s ease;
+ }
+
+ .card::before {
+     content: "";
+     position: absolute;
+     inset: 0;
+     border-radius: inherit;
+     background: radial-gradient(circle at top,
+             rgba(255, 255, 255, 0.06),
+             transparent 60%);
+     pointer-events: none;
+ }
+
+
+ .card .icon {
+     font-size: 2.2vw;
+     line-height: 1;
+ }
+
+ .card h6 {
+     font-size: 1.3vw;
+ }
+
+ .card p {
+     font-size: 1.1vw;
+     text-align: justify;
  }
 
  .c1 p {
@@ -95,7 +141,6 @@
      text-align: justify;
      font-size: 1.1vw;
      font-weight: lighter;
-
  }
 
  .btn {
@@ -145,35 +190,13 @@
 
 
 
- .second-card {
-     width: 70%;
-     height: 50%;
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     border: 1.4px solid #111;
-     border-radius: 10px;
-     margin: 1vw;
-     padding: 1.2vw;
-     gap: 1vw;
- }
+ @media (max-width: 768px) {
+     .content {
+         grid-template-columns: 1fr;
+         gap: 1.5rem;
+     }
 
- .content {
-     display: flex;
-     gap: 2vw;
- }
-
- .card {
-     width: 50%;
-     border: 1.4px solid #111;
-     border-radius: 10px;
-     padding: 1.5vw;
-     display: flex;
-     flex-direction: column;
-     gap: 1vw;
- }
-
- .card p {
-     font-size: 1.1vw;
-     text-align: justify;
+     .card p {
+         font-size: 1rem;
+     }
  }

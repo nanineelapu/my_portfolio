@@ -28,7 +28,7 @@
 
  .title h2 {
      font-size: 3.5vw;
-     color: #2c3e50;
+     color: #ffff;
      margin-bottom: .5vw;
      letter-spacing: 1px;
      font-family: 'Science Gothic', sans-serif;
@@ -46,7 +46,7 @@
  .desc {
      max-width: 700px;
      margin: 0 auto;
-     color: #666;
+     color: #727272;
      font-size: 1.1rem;
      line-height: 1.7;
  }
