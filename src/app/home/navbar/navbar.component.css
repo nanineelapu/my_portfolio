@@ -45,10 +45,11 @@
 
 .home-title {
     display: grid;
-    margin-bottom: 9vw;
+    margin-bottom: 4vw;
     align-items: center;
     text-align: center;
-    padding: 5vw 2vw;
+    padding: 6vw 0vw;
+    gap: 2vw;
 
 
 }
@@ -82,7 +83,11 @@
 .buttons {
     display: flex;
     align-items: center;
-    gap: 3vw;
+    padding: 0vw;
+    gap: 2vw;
+    margin-left: auto;
+    margin-right: 0vw;
+    justify-content: flex-end;
 }
 
 .i1 {
