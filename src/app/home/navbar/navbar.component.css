@@ -7,7 +7,7 @@
 
 
 .home {
-    height: 102vh;
+    height: 100vh;
     width: 100%;
     padding-top: 0vw;
     background-image: url("https://firebasestorage.googleapis.com/v0/b/naniportfolio-cadd2.appspot.com/o/Portfolio%20icons%20angula%2Ffinal%20image.png?alt=media&token=fb2124fa-89d0-41a5-8563-1b36cc4b8155");
@@ -88,6 +88,7 @@
 .i1 {
     position: inherit;
     background-color: transparent;
+
 }
 
 .i1 i {
@@ -130,7 +131,7 @@
     }
 
     .i1 i {
-        font-size: 3vw;
+        font-size: 4vw;
     }
 
     .btn-title h5 {
@@ -150,22 +151,52 @@
         width: 90%;
         margin: 0 auto 3vh;
         padding: 0;
-        margin-bottom: 80vw;
+        margin-bottom: 100vw;
     }
 
     .home-title h6 {
-        font-size: 3.5vw;
+        font-size: 4vw;
         text-align: left;
         justify-content: flex-start;
-
+        margin-top: 0.5rem;
+        /* Reduced from default */
+        margin-bottom: 1.5rem;
+        /* Add space below the subtitle */
     }
 
     .home-content h1 {
         font-size: 6vw;
-        line-height: 1.2;
-        letter-spacing: 0.1em;
+        line-height: 1.8;
+        /* Reduced from 1.8 */
+        letter-spacing: 1em;
         text-align: left;
         width: 100%;
+        margin-bottom: 0;
+        /* Remove any bottom margin */
+    }
+
+    .home {
+        padding-top: 5vh;
+        /* Reduced from default */
+        align-items: flex-start;
+        /* Align content to the top */
+    }
+
+    .home-content {
+        margin-top: 5vh;
+        /* Add some space from the top */
+    }
+
+    .home-title {
+        margin-top: 0;
+        padding-top: 2vh;
+        /* Reduced top padding */
+    }
+
+    /* Adjust the buttons section to be more compact */
+    .buttons {
+        margin-top: 1rem;
+        /* Reduced space above buttons */
     }
 
     .line2::after {
@@ -193,7 +224,10 @@
     }
 
     .line3 {
-        margin-top: 0.5rem;
+        margin-top: 0;
+        /* Remove top margin */
+        margin-bottom: 1rem;
+        /* Add space below */
     }
 
     .buttons {
@@ -210,6 +244,16 @@
     }
 
     .btn-title h5 {
-        font-size: 4.5vw;
+        font-size: 4vw;
     }
+
+    .i1 i {
+        font-size: 4vw;
+        transition:
+            transform 0.25s ease,
+            color 0.25s ease,
+            filter 0.25s ease;
+        will-change: transform;
+    }
+
 }

@@ -198,7 +198,7 @@
 }
 
 .navbar.dark .hamburger-line {
-    background-color: black;
+    background-color: #fff;
 }
 
 /* Mobile styles */
@@ -245,6 +245,7 @@
         display: block;
         padding: 15px 0;
         font-size: 1.2rem;
+        color: #fff;
     }
 
     .desktop-resume {
@@ -338,19 +339,35 @@
 /* Scrolled state */
 .navbar.scrolled {
     background-color: rgba(255, 255, 255, 0.95);
-
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
 }
 
 /* When scrolled and on a light section */
-.navbar.scrolled.dark .nav-links a,
-.navbar.scrolled.dark .logo,
-.navbar.scrolled.dark .hamburger-line {
+.navbar.scrolled.dark {
+    background-color: white !important;
+}
+
+.navbar.scrolled.dark .nav-links a {
     color: black;
 }
 
+.navbar.scrolled.dark .logo {
+    color: black;
+}
+
+.navbar.scrolled.dark .hamburger-line {
+    background-color: black;
+}
+
 /* When scrolled and on a dark section */
-.navbar.scrolled:not(.dark) .nav-links a,
+.navbar.scrolled:not(.dark) {
+    background-color: black !important;
+}
+
+.navbar.scrolled:not(.dark) .nav-links a {
+    color: white;
+}
+
 .navbar.scrolled:not(.dark) .logo,
 .navbar.scrolled:not(.dark) .hamburger-line {
     color: white;
@@ -363,12 +380,21 @@
     }
 
     .navbar.scrolled {
-        background-color: transparent;
+        background-color: white !important;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
 
+    .navbar.scrolled .logo,
+    .navbar.scrolled .hamburger-line {
+        color: black !important;
     }
 
     /* Ensure the mobile menu has a solid background when open */
     .navbar .nav-links {
         background-color: rgba(0, 0, 0, 0.95) !important;
+    }
+
+    .navbar .nav-links a {
+        color: white !important;
     }
 }
