@@ -90,18 +90,20 @@
      position: relative;
 
      /* Core look */
-     background: #ffffff;
+     background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7));
+     backdrop-filter: blur(10px);
 
-     color: #333;
+     color: #fff;
      border-radius: 16px;
 
      /* Aesthetic drop shadow */
-     border: 1px solid rgba(0, 0, 0, 0.05);
+     border: 1px solid rgba(255, 255, 255, 0.1);
      box-shadow:
          0 1px 3px rgba(0, 0, 0, 0.12),
          0 1px 2px rgba(0, 0, 0, 0.24),
          0 8px 16px rgba(0, 0, 0, 0.08),
-         0 16px 32px rgba(0, 0, 0, 0.06);
+         0 16px 32px rgba(0, 0, 0, 0.06),
+         0 4px 15px rgba(0, 0, 0, 0.3);
 
      /* Smoothness */
      transition:
@@ -116,7 +118,7 @@
      inset: 0;
      border-radius: inherit;
      background: radial-gradient(circle at top,
-             rgba(0, 0, 0, 0.02),
+             rgba(255, 255, 255, 0.05),
              transparent 60%);
      pointer-events: none;
  }
@@ -127,9 +129,9 @@
      inset: 0;
      border-radius: inherit;
      background: linear-gradient(135deg,
-             rgba(255, 255, 255, 0.1) 0%,
+             rgba(255, 255, 255, 0.05) 0%,
              transparent 50%,
-             rgba(0, 0, 0, 0.02) 100%);
+             rgba(0, 0, 0, 0.1) 100%);
      pointer-events: none;
  }
 
@@ -145,10 +147,11 @@
  .card p {
      font-size: 1.1vw;
      text-align: justify;
+     color: #fff;
  }
 
  .c1 p {
-     color: #333;
+     color: #fff;
      text-align: justify;
      font-size: 1.1vw;
      font-weight: lighter;
@@ -164,11 +167,11 @@
      z-index: 1;
      padding: .4vw .8vw;
      text-decoration: none;
-     color: #333;
+     color: #fff;
      font-weight: 500;
      letter-spacing: 0.5px;
      background: transparent;
-     border: 1px solid #333;
+     border: 1px solid #fff;
      border-radius: 30px;
      overflow: hidden;
      transition: all 0.3s ease;
@@ -177,12 +180,12 @@
  }
 
  .btn button:hover {
-     color: #fff;
-     background-color: #333;
+     color: #000;
+     background-color: #fff;
      transform: translateY(-2px);
      transition: all 0.3s ease;
      cursor: pointer;
-     border: 1px solid #333;
+     border: 1px solid #fff;
  }
 
  .btn button:hover::before {
@@ -192,11 +195,13 @@
  /* Enhanced card hover effect */
  .card:hover {
      transform: translateY(-8px);
+     background: linear-gradient(135deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.8));
      box-shadow:
          0 2px 4px rgba(0, 0, 0, 0.12),
          0 4px 8px rgba(0, 0, 0, 0.24),
          0 12px 24px rgba(0, 0, 0, 0.10),
-         0 24px 48px rgba(0, 0, 0, 0.08);
+         0 24px 48px rgba(0, 0, 0, 0.08),
+         0 6px 20px rgba(0, 0, 0, 0.4);
  }
 
  @media (max-width: 768px) {
@@ -212,7 +217,7 @@
      }
 
      .title .desc p {
-         font-size: 0.9rem;
+         font-size: 3vw;
          line-height: 1.5;
          margin-top: 0.6rem;
      }
@@ -220,7 +225,7 @@
      .content {
          grid-template-columns: 1fr;
          gap: 3vw;
-         margin: 3vw 0 0 0;
+         margin: 8vw 0 0 0;
          width: 100%;
          padding: 0;
      }

@@ -398,4 +398,16 @@
     .navbar .nav-links a {
         color: white !important;
     }
+
+    /* Keep nav links white even when scrolled */
+    .navbar.scrolled .nav-links a {
+        color: white !important;
+    }
+
+    /* Ensure mobile menu text stays white in all states */
+    .navbar.dark .nav-links a,
+    .navbar.scrolled.dark .nav-links a,
+    .navbar:not(.dark) .nav-links a {
+        color: white !important;
+    }
 }
