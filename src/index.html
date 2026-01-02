@@ -11,7 +11,6 @@
       type="image/x-icon"
       href="https://firebasestorage.googleapis.com/v0/b/naniportfolio-cadd2.appspot.com/o/Portfolio%20icons%20angula%2Ffavicon.ico?alt=media&token=c2fac038-516c-455b-91aa-18da91f190d5"
     />
-
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -27,6 +26,7 @@
 
     <!-- GSAP CDN -->
     <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
 
     <style>
       * {
@@ -210,6 +210,589 @@
           );
 
         document.body.style.overflow = "auto";
+
+        // Add animations for all sections after preloader
+        setTimeout(() => {
+          // Set initial state
+          gsap.set("app-nav", { opacity: 0, y: -20 });
+          gsap.set("app-navbar", { opacity: 0, y: -20 });
+          gsap.set("app-page", { opacity: 0, y: 30 });
+          gsap.set("app-services", { opacity: 0, y: 30 });
+          gsap.set("app-skills", { opacity: 0, y: 30 });
+          gsap.set("app-projects", { opacity: 0, y: 30 });
+          gsap.set("app-footer", { opacity: 0, y: 30 });
+
+          // Create timeline for sequential animations
+          const sectionTl = gsap.timeline();
+
+          // Animate sections
+          sectionTl
+            .to("app-nav", {
+              opacity: 1,
+              y: 0,
+              duration: 0.8,
+              ease: "power2.out",
+            })
+            .to(
+              "app-navbar",
+              { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
+              "-=0.4"
+            )
+            .to(
+              "app-page",
+              { opacity: 1, y: 0, duration: 1, ease: "power2.out" },
+              "-=0.2"
+            )
+            .to(
+              "app-services",
+              { opacity: 1, y: 0, duration: 1, ease: "power2.out" },
+              "-=0.3"
+            )
+            .to(
+              "app-skills",
+              { opacity: 1, y: 0, duration: 1, ease: "power2.out" },
+              "-=0.3"
+            )
+            .to(
+              "app-projects",
+              { opacity: 1, y: 0, duration: 1, ease: "power2.out" },
+              "-=0.3"
+            )
+            .to(
+              "app-footer",
+              { opacity: 1, y: 0, duration: 1, ease: "power2.out" },
+              "-=0.3"
+            );
+
+          // Add nav-specific animations
+          setTimeout(() => {
+            // Logo animation
+            gsap.from(".logo", {
+              opacity: 0,
+              x: -30,
+              duration: 0.6,
+              ease: "power2.out",
+              delay: 0.2,
+            });
+
+            // Hamburger menu animation
+            gsap.from(".hamburger", {
+              opacity: 0,
+              x: 30,
+              duration: 0.6,
+              ease: "power2.out",
+              delay: 0.3,
+            });
+
+            // Nav links stagger animation
+            gsap.from(".nav-links li", {
+              opacity: 0,
+              y: -20,
+              duration: 0.5,
+              ease: "power2.out",
+              stagger: 0.1,
+              delay: 0.4,
+            });
+
+            // Resume button animation
+            gsap.from(".resume-btn", {
+              opacity: 0,
+              scale: 0.8,
+              duration: 0.6,
+              ease: "back.out(1.7)",
+              delay: 0.8,
+            });
+          }, 800);
+
+          // Add hover animations for nav links
+          document.querySelectorAll(".nav-links a").forEach((link) => {
+            link.addEventListener("mouseenter", () => {
+              gsap.to(link, {
+                y: -2,
+                duration: 0.3,
+                ease: "power2.out",
+              });
+            });
+
+            link.addEventListener("mouseleave", () => {
+              gsap.to(link, {
+                y: 0,
+                duration: 0.3,
+                ease: "power2.out",
+              });
+            });
+          });
+
+          // Add hamburger menu animation
+          const hamburger = document.querySelector(".hamburger");
+          const navLinks = document.querySelector(".nav-links");
+
+          if (hamburger && navLinks) {
+            hamburger.addEventListener("click", () => {
+              if (navLinks.classList.contains("active")) {
+                // Close menu animation
+                gsap.to(".nav-links li", {
+                  opacity: 0,
+                  x: 50,
+                  duration: 0.3,
+                  stagger: 0.05,
+                  ease: "power2.in",
+                });
+              } else {
+                // Open menu animation
+                gsap.from(".nav-links li", {
+                  opacity: 0,
+                  x: 50,
+                  duration: 0.3,
+                  stagger: 0.05,
+                  ease: "power2.out",
+                });
+              }
+            });
+          }
+
+          // Add navbar component animations
+          setTimeout(() => {
+            // Animate home section background
+            gsap.from(".home", {
+              opacity: 0,
+              scale: 1.1,
+              duration: 1.2,
+              ease: "power2.out",
+            });
+
+            // Animate home title lines with stagger
+            gsap.from(".line1", {
+              opacity: 0,
+              x: -50,
+              duration: 0.8,
+              ease: "power2.out",
+              delay: 0.3,
+            });
+
+            gsap.from(".line2", {
+              opacity: 0,
+              x: -50,
+              duration: 0.8,
+              ease: "power2.out",
+              delay: 0.5,
+            });
+
+            gsap.from(".line3", {
+              opacity: 0,
+              x: -50,
+              duration: 0.8,
+              ease: "power2.out",
+              delay: 0.7,
+            });
+
+            // Animate buttons section
+            gsap.from(".buttons", {
+              opacity: 0,
+              y: 30,
+              duration: 0.8,
+              ease: "power2.out",
+              delay: 0.9,
+            });
+
+            // Animate contact button title
+            gsap.from(".btn-title h5", {
+              opacity: 0,
+              scale: 0.8,
+              duration: 0.6,
+              ease: "back.out(1.7)",
+              delay: 1.1,
+            });
+
+            // Animate social icons with stagger
+            gsap.from(".icons .i1", {
+              opacity: 0,
+              scale: 0,
+              duration: 0.5,
+              ease: "back.out(1.7)",
+              stagger: 0.1,
+              delay: 1.3,
+            });
+
+            // Add hover animations for social icons
+            document.querySelectorAll(".i1 i").forEach((icon) => {
+              icon.addEventListener("mouseenter", () => {
+                gsap.to(icon, {
+                  scale: 1.2,
+                  rotation: 5,
+                  duration: 0.3,
+                  ease: "power2.out",
+                });
+              });
+
+              icon.addEventListener("mouseleave", () => {
+                gsap.to(icon, {
+                  scale: 1,
+                  rotation: 0,
+                  duration: 0.3,
+                  ease: "power2.out",
+                });
+              });
+            });
+
+            // Add hover animation for contact button
+            const btnTitle = document.querySelector(".btn-title");
+            if (btnTitle) {
+              btnTitle.addEventListener("mouseenter", () => {
+                gsap.to(".btn-title h5", {
+                  scale: 1.05,
+                  duration: 0.3,
+                  ease: "power2.out",
+                });
+              });
+
+              btnTitle.addEventListener("mouseleave", () => {
+                gsap.to(".btn-title h5", {
+                  scale: 1,
+                  duration: 0.3,
+                  ease: "power2.out",
+                });
+              });
+            }
+
+            // Parallax effect on mouse move
+            const homeSection = document.querySelector(".home");
+            if (homeSection) {
+              homeSection.addEventListener("mousemove", (e) => {
+                const { clientX, clientY } = e;
+                const { innerWidth, innerHeight } = window;
+                const xPos = (clientX - innerWidth / 2) / innerWidth;
+                const yPos = (clientY - innerHeight / 2) / innerHeight;
+
+                gsap.to(".home", {
+                  backgroundPosition: `${20 + xPos * 5}% ${50 + yPos * 5}%`,
+                  duration: 1,
+                  ease: "power2.out",
+                });
+              });
+            }
+          }, 1200);
+
+          // Register ScrollTrigger plugin
+          gsap.registerPlugin(ScrollTrigger);
+
+          // Page/About Section Scroll Animations
+          setTimeout(() => {
+            // Animate section title on scroll
+            gsap.from("#about .section-title h2", {
+              opacity: 0,
+              y: 50,
+              duration: 1,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: "#about",
+                start: "top 80%",
+                end: "bottom 20%",
+                toggleActions: "play none none reverse",
+              },
+            });
+
+            gsap.from("#about .section-title span", {
+              opacity: 0,
+              y: 30,
+              duration: 0.8,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: "#about",
+                start: "top 75%",
+                end: "bottom 20%",
+                toggleActions: "play none none reverse",
+              },
+            });
+
+            // Animate left content (text and info)
+            gsap.from("#about .left", {
+              opacity: 0,
+              x: -100,
+              duration: 1.2,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: "#about .left",
+                start: "top 85%",
+                end: "bottom 20%",
+                toggleActions: "play none none reverse",
+              },
+            });
+
+            // Animate left content paragraph
+            gsap.from("#about .left-content p", {
+              opacity: 0,
+              y: 30,
+              duration: 1,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: "#about .left-content",
+                start: "top 80%",
+                end: "bottom 20%",
+                toggleActions: "play none none reverse",
+              },
+            });
+
+            // Animate contact info boxes
+            gsap.from("#about .t1, #about .t2", {
+              opacity: 0,
+              scale: 0.9,
+              duration: 0.8,
+              ease: "back.out(1.7)",
+              stagger: 0.2,
+              scrollTrigger: {
+                trigger: "#about .t1",
+                start: "top 85%",
+                end: "bottom 20%",
+                toggleActions: "play none none reverse",
+              },
+            });
+
+            // Animate right content (image and button)
+            gsap.from("#about .right", {
+              opacity: 0,
+              x: 100,
+              duration: 1.2,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: "#about .right",
+                start: "top 85%",
+                end: "bottom 20%",
+                toggleActions: "play none none reverse",
+              },
+            });
+
+            // Animate profile image
+            gsap.from("#about .right img", {
+              opacity: 0,
+              scale: 0.8,
+              duration: 1,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: "#about .right img",
+                start: "top 85%",
+                end: "bottom 20%",
+                toggleActions: "play none none reverse",
+              },
+            });
+
+            // Animate resume button
+            gsap.from("#about .resume-btn.light", {
+              opacity: 0,
+              y: 30,
+              duration: 0.8,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: "#about .resume-btn.light",
+                start: "top 85%",
+                end: "bottom 20%",
+                toggleActions: "play none none reverse",
+              },
+            });
+
+            // Add hover animation for resume button
+            const resumeBtn = document.querySelector(
+              "#about .resume-btn.light"
+            );
+            if (resumeBtn) {
+              resumeBtn.addEventListener("mouseenter", () => {
+                gsap.to("#about .resume-btn.light", {
+                  scale: 1.05,
+                  duration: 0.3,
+                  ease: "power2.out",
+                });
+              });
+
+              resumeBtn.addEventListener("mouseleave", () => {
+                gsap.to("#about .resume-btn.light", {
+                  scale: 1,
+                  duration: 0.3,
+                  ease: "power2.out",
+                });
+              });
+            }
+
+            // Parallax effect for the section background
+            gsap.to("#about", {
+              backgroundPosition: "50% 100%",
+              ease: "none",
+              scrollTrigger: {
+                trigger: "#about",
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 1,
+              },
+            });
+
+            // Fade in the left border decoration
+            gsap.from("#about .left::before", {
+              opacity: 0,
+              scaleY: 0,
+              duration: 1,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: "#about .left",
+                start: "top 80%",
+                end: "bottom 20%",
+                toggleActions: "play none none reverse",
+              },
+            });
+          }, 1400);
+
+          // Services Section Scroll Animations with Floating Effect
+          setTimeout(() => {
+            // Animate services section title
+            gsap.from("#services .title h2", {
+              opacity: 0,
+              y: 50,
+              duration: 1,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: "#services",
+                start: "top 80%",
+                end: "bottom 20%",
+                toggleActions: "play none none reverse",
+              },
+            });
+
+            // Animate services description
+            gsap.from("#services .desc", {
+              opacity: 0,
+              y: 30,
+              duration: 0.8,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: "#services .desc",
+                start: "top 85%",
+                end: "bottom 20%",
+                toggleActions: "play none none reverse",
+              },
+            });
+
+            // Animate service cards with stagger and start floating animation
+            gsap.from("#services .card", {
+              opacity: 0,
+              y: 80,
+              scale: 0.95,
+              duration: 0.8,
+              ease: "power2.out",
+              stagger: 0.15,
+              scrollTrigger: {
+                trigger: "#services .content",
+                start: "top 80%",
+                end: "bottom 20%",
+                toggleActions: "play none none reverse",
+                onEnter: () => {
+                  // Start continuous floating animation for all cards
+                  gsap.to("#services .card", {
+                    y: "random(-10, -20)",
+                    duration: "random(2, 3)",
+                    ease: "sine.inOut",
+                    repeat: -1,
+                    yoyo: true,
+                    stagger: {
+                      each: "random(0.2, 0.8)",
+                      from: "random",
+                    },
+                  });
+                },
+                onLeave: () => {
+                  // Stop floating animation when leaving section
+                  gsap.killTweensOf("#services .card");
+                  gsap.set("#services .card", { y: 0 });
+                },
+                onEnterBack: () => {
+                  // Restart floating when re-entering
+                  gsap.to("#services .card", {
+                    y: "random(-10, -20)",
+                    duration: "random(2, 3)",
+                    ease: "sine.inOut",
+                    repeat: -1,
+                    yoyo: true,
+                    stagger: {
+                      each: "random(0.2, 0.8)",
+                      from: "random",
+                    },
+                  });
+                },
+              },
+            });
+
+            // Animate card images
+            gsap.from("#services .card img", {
+              opacity: 0,
+              scale: 0.8,
+              duration: 0.6,
+              ease: "power2.out",
+              stagger: 0.1,
+              scrollTrigger: {
+                trigger: "#services .content",
+                start: "top 75%",
+                end: "bottom 20%",
+                toggleActions: "play none none reverse",
+              },
+            });
+
+            // Animate card buttons
+            gsap.from("#services .btn button", {
+              opacity: 0,
+              y: 20,
+              duration: 0.5,
+              ease: "power2.out",
+              stagger: 0.1,
+              scrollTrigger: {
+                trigger: "#services .content",
+                start: "top 70%",
+                end: "bottom 20%",
+                toggleActions: "play none none reverse",
+              },
+            });
+
+            // Add hover animations for cards
+            document.querySelectorAll("#services .card").forEach((card) => {
+              card.addEventListener("mouseenter", () => {
+                // Pause floating animation on hover
+                gsap.to(card, {
+                  y: -8,
+                  duration: 0.3,
+                  ease: "power2.out",
+                });
+              });
+
+              card.addEventListener("mouseleave", () => {
+                // Resume floating animation
+                gsap.to(card, {
+                  y: "random(-10, -20)",
+                  duration: "random(2, 3)",
+                  ease: "sine.inOut",
+                  repeat: -1,
+                  yoyo: true,
+                });
+              });
+            });
+
+            // Add hover animations for buttons
+            document
+              .querySelectorAll("#services .btn button")
+              .forEach((button) => {
+                button.addEventListener("mouseenter", () => {
+                  gsap.to(button, {
+                    scale: 1.05,
+                    duration: 0.2,
+                    ease: "power2.out",
+                  });
+                });
+
+                button.addEventListener("mouseleave", () => {
+                  gsap.to(button, {
+                    scale: 1,
+                    duration: 0.2,
+                    ease: "power2.out",
+                  });
+                });
+              });
+          }, 1600);
+        }, 500);
       });
     </script>
   </body>

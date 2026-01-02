@@ -18,9 +18,11 @@
 
  #services {
      height: 165vh;
-     background-color: #111;
+     background-color: #f8f9fa;
      padding: 6.5vw 4vw;
-     margin-top: 8vw;
+     margin: 8vw auto 0;
+     width: 80vw;
+     max-width: 1200px;
  }
 
  .title {
@@ -34,7 +36,7 @@
      font-size: 2.6vw;
      font-weight: 700;
      margin-bottom: 1rem;
-     color: #fff;
+     color: #333;
      font-family: 'Science Gothic';
      text-transform: uppercase;
      position: relative;
@@ -59,7 +61,7 @@
  }
 
  .title .desc p {
-     color: #aaa;
+     color: #666;
      font-size: 1.1vw;
      line-height: 1.8;
      margin-top: 1.5rem;
@@ -85,23 +87,21 @@
 
      padding: 1.4vw;
      gap: 1vw;
+     position: relative;
 
      /* Core look */
-     background: linear-gradient(180deg,
-             #262626 0%,
-             #1c1c1c 100%);
+     background: #ffffff;
 
-     color: #ffffff;
-     border-radius: 14px;
+     color: #333;
+     border-radius: 16px;
 
-     /* Soft edge light */
-     border: 1px solid rgba(255, 255, 255, 0.06);
-
-     /* Layered shadow (THIS is what makes it premium) */
+     /* Aesthetic drop shadow */
+     border: 1px solid rgba(0, 0, 0, 0.05);
      box-shadow:
-         0 6px 18px rgba(0, 0, 0, 0.55),
-         0 12px 35px rgba(0, 0, 0, 0.45),
-         inset 0 1px 0 rgba(255, 255, 255, 0.05);
+         0 1px 3px rgba(0, 0, 0, 0.12),
+         0 1px 2px rgba(0, 0, 0, 0.24),
+         0 8px 16px rgba(0, 0, 0, 0.08),
+         0 16px 32px rgba(0, 0, 0, 0.06);
 
      /* Smoothness */
      transition:
@@ -116,11 +116,22 @@
      inset: 0;
      border-radius: inherit;
      background: radial-gradient(circle at top,
-             rgba(255, 255, 255, 0.06),
+             rgba(0, 0, 0, 0.02),
              transparent 60%);
      pointer-events: none;
  }
 
+ .card::after {
+     content: "";
+     position: absolute;
+     inset: 0;
+     border-radius: inherit;
+     background: linear-gradient(135deg,
+             rgba(255, 255, 255, 0.1) 0%,
+             transparent 50%,
+             rgba(0, 0, 0, 0.02) 100%);
+     pointer-events: none;
+ }
 
  .card .icon {
      font-size: 2.2vw;
@@ -137,7 +148,7 @@
  }
 
  .c1 p {
-     color: #fff;
+     color: #333;
      text-align: justify;
      font-size: 1.1vw;
      font-weight: lighter;
@@ -146,7 +157,6 @@
  .btn {
      display: flex;
      justify-content: center;
-
  }
 
  .btn button {
@@ -154,41 +164,40 @@
      z-index: 1;
      padding: .4vw .8vw;
      text-decoration: none;
-     color: #111;
-     font-weight: bold;
+     color: #333;
+     font-weight: 500;
      letter-spacing: 0.5px;
      background: transparent;
-     border: 1px solid #919191;
+     border: 1px solid #333;
      border-radius: 30px;
      overflow: hidden;
-     transition: color 0.4s ease;
+     transition: all 0.3s ease;
      font-family: 'Science Gothic';
      font-size: 1vw;
-     background-color: #a1a1a1b7;
  }
-
 
  .btn button:hover {
-     color: white;
-     background-color: black;
-     transform: scale(1.1);
+     color: #fff;
+     background-color: #333;
+     transform: translateY(-2px);
      transition: all 0.3s ease;
      cursor: pointer;
-     border: 2px solid #fff;
-
- }
-
-
-
- .btn button:hover::after {
-     transform: scale(1.05);
+     border: 1px solid #333;
  }
 
  .btn button:hover::before {
      transform: scale(1.1);
  }
 
-
+ /* Enhanced card hover effect */
+ .card:hover {
+     transform: translateY(-8px);
+     box-shadow:
+         0 2px 4px rgba(0, 0, 0, 0.12),
+         0 4px 8px rgba(0, 0, 0, 0.24),
+         0 12px 24px rgba(0, 0, 0, 0.10),
+         0 24px 48px rgba(0, 0, 0, 0.08);
+ }
 
  @media (max-width: 768px) {
      #services {

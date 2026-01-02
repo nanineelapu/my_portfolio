@@ -20,9 +20,8 @@ import { NavComponent } from './nav/nav.component';
     ServicesComponent,
     SkillsComponent,
     ProjectsComponent,
-    FooterComponent
-],
+    FooterComponent,
+  ],
   templateUrl: './home.component.html',
 })
-export class HomeComponent {
-}
+export class HomeComponent {}
