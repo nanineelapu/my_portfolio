@@ -23,7 +23,10 @@
 
  .title {
      text-align: center;
-     padding-left: 29vw;
+     display: table-column;
+     align-items: center;
+     justify-content: center;
+     padding-left: 35vw;
  }
 
  .title h2 {

@@ -639,7 +639,7 @@
             });
           }, 1400);
 
-          // Services Section Scroll Animations with Floating Effect
+          // Services Section Scroll Animations - Simple
           setTimeout(() => {
             // Animate services section title
             gsap.from("#services .title h2", {
@@ -668,131 +668,446 @@
                 toggleActions: "play none none reverse",
               },
             });
+          }, 1600);
 
-            // Animate service cards with stagger and start floating animation
-            gsap.from("#services .card", {
+          // Skills Section Scroll Animations - Fixed
+          setTimeout(() => {
+            // Animate skills section title
+            gsap.from("#skills .title h2", {
               opacity: 0,
-              y: 80,
-              scale: 0.95,
-              duration: 0.8,
+              y: 50,
+              duration: 1,
               ease: "power2.out",
-              stagger: 0.15,
               scrollTrigger: {
-                trigger: "#services .content",
+                trigger: "#skills",
                 start: "top 80%",
                 end: "bottom 20%",
                 toggleActions: "play none none reverse",
-                onEnter: () => {
-                  // Start continuous floating animation for all cards
-                  gsap.to("#services .card", {
-                    y: "random(-10, -20)",
-                    duration: "random(2, 3)",
-                    ease: "sine.inOut",
-                    repeat: -1,
-                    yoyo: true,
-                    stagger: {
-                      each: "random(0.2, 0.8)",
-                      from: "random",
-                    },
-                  });
-                },
-                onLeave: () => {
-                  // Stop floating animation when leaving section
-                  gsap.killTweensOf("#services .card");
-                  gsap.set("#services .card", { y: 0 });
-                },
-                onEnterBack: () => {
-                  // Restart floating when re-entering
-                  gsap.to("#services .card", {
-                    y: "random(-10, -20)",
-                    duration: "random(2, 3)",
-                    ease: "sine.inOut",
-                    repeat: -1,
-                    yoyo: true,
-                    stagger: {
-                      each: "random(0.2, 0.8)",
-                      from: "random",
-                    },
-                  });
-                },
               },
             });
 
-            // Animate card images
-            gsap.from("#services .card img", {
+            // Animate skills description
+            gsap.from("#skills .desc", {
               opacity: 0,
-              scale: 0.8,
+              y: 30,
+              duration: 0.8,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: "#skills .desc",
+                start: "top 85%",
+                end: "bottom 20%",
+                toggleActions: "play none none reverse",
+              },
+            });
+
+            // Animate skills list container - ensure it starts visible
+            gsap.set("#skills .skills-list", {
+              opacity: 1,
+              visibility: "visible",
+            });
+            gsap.from("#skills .skills-list", {
+              opacity: 0,
+              x: -100,
+              duration: 1,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: "#skills .total-section",
+                start: "top 80%",
+                end: "bottom 20%",
+                toggleActions: "play none none reverse",
+              },
+            });
+
+            // Animate skill items with stagger - ensure they start visible
+            gsap.set("#skills .skill-item", {
+              opacity: 1,
+              visibility: "visible",
+            });
+            gsap.from("#skills .skill-item", {
+              opacity: 0,
+              x: -50,
               duration: 0.6,
               ease: "power2.out",
               stagger: 0.1,
               scrollTrigger: {
-                trigger: "#services .content",
+                trigger: "#skills .total-section",
                 start: "top 75%",
                 end: "bottom 20%",
                 toggleActions: "play none none reverse",
               },
             });
 
-            // Animate card buttons
-            gsap.from("#services .btn button", {
+            // Animate skill description area
+            gsap.from("#skills .skill-description", {
               opacity: 0,
-              y: 20,
-              duration: 0.5,
+              x: 100,
+              duration: 1,
               ease: "power2.out",
-              stagger: 0.1,
               scrollTrigger: {
-                trigger: "#services .content",
-                start: "top 70%",
+                trigger: "#skills .total-section",
+                start: "top 80%",
                 end: "bottom 20%",
                 toggleActions: "play none none reverse",
               },
             });
 
-            // Add hover animations for cards
-            document.querySelectorAll("#services .card").forEach((card) => {
-              card.addEventListener("mouseenter", () => {
-                // Pause floating animation on hover
-                gsap.to(card, {
-                  y: -8,
+            // Animate description content
+            gsap.from("#skills .description-content", {
+              opacity: 0,
+              y: 30,
+              duration: 0.8,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: "#skills .total-section",
+                start: "top 85%",
+                end: "bottom 20%",
+                toggleActions: "play none none reverse",
+              },
+            });
+
+            // Animate icons - with delay to ensure they're loaded
+            setTimeout(() => {
+              gsap.from("#skills .icons i", {
+                opacity: 0,
+                scale: 0,
+                duration: 0.5,
+                ease: "back.out(1.7)",
+                stagger: 0.1,
+                scrollTrigger: {
+                  trigger: "#skills .total-section",
+                  start: "top 85%",
+                  end: "bottom 20%",
+                  toggleActions: "play none none reverse",
+                },
+              });
+            }, 100);
+
+            // Add hover animations for skill items
+            const addSkillItemHover = () => {
+              const skillItems = document.querySelectorAll(
+                "#skills .skill-item"
+              );
+              skillItems.forEach((item) => {
+                item.addEventListener("mouseenter", () => {
+                  gsap.to(item, {
+                    x: 5,
+                    duration: 0.3,
+                    ease: "power2.out",
+                  });
+                });
+
+                item.addEventListener("mouseleave", () => {
+                  gsap.to(item, {
+                    x: 0,
+                    duration: 0.3,
+                    ease: "power2.out",
+                  });
+                });
+              });
+            };
+
+            // Add hover animations for icons
+            const addIconHover = () => {
+              const icons = document.querySelectorAll("#skills .icons i");
+              icons.forEach((icon) => {
+                icon.addEventListener("mouseenter", () => {
+                  gsap.to(icon, {
+                    scale: 1.2,
+                    rotation: 5,
+                    duration: 0.3,
+                    ease: "power2.out",
+                  });
+                });
+
+                icon.addEventListener("mouseleave", () => {
+                  gsap.to(icon, {
+                    scale: 1,
+                    rotation: 0,
+                    duration: 0.3,
+                    ease: "power2.out",
+                  });
+                });
+              });
+            };
+
+            // Initialize hover effects after a delay
+            setTimeout(() => {
+              addSkillItemHover();
+              addIconHover();
+            }, 200);
+          }, 1800);
+        }, 500);
+
+        // Projects Section Scroll Animations - Minimal
+        setTimeout(() => {
+          // Animate projects section title
+          gsap.from("#projects .title h2", {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: "#projects",
+              start: "top 80%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse",
+            },
+          });
+
+          // Animate projects description
+          gsap.from("#projects .desc", {
+            opacity: 0,
+            y: 30,
+            duration: 0.8,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: "#projects .desc",
+              start: "top 85%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse",
+            },
+          });
+
+          // Animate main project titles
+          gsap.from(".main-title", {
+            opacity: 0,
+            x: -50,
+            duration: 0.8,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: ".main-title",
+              start: "top 85%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse",
+            },
+          });
+
+          // Animate project descriptions
+          gsap.from("#prj-desc .title-one", {
+            opacity: 0,
+            x: 50,
+            duration: 0.8,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: "#prj-desc",
+              start: "top 85%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse",
+            },
+          });
+
+          // Animate project images with stagger
+          gsap.from(".prj-one-images img", {
+            opacity: 0,
+            scale: 0.9,
+            duration: 0.6,
+            ease: "power2.out",
+            stagger: 0.1,
+            scrollTrigger: {
+              trigger: "#sec2",
+              start: "top 80%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse",
+            },
+          });
+        }, 2000);
+
+        // Footer Section Scroll Animations - Comprehensive
+        setTimeout(() => {
+          // Animate footer logo/name
+          gsap.from(".footer-top-name", {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: "#contact",
+              start: "top 85%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse",
+            },
+          });
+
+          // Animate footer logo SVG
+          gsap.from(".footer-top-name svg", {
+            opacity: 0,
+            scale: 0.8,
+            duration: 0.8,
+            ease: "back.out(1.7)",
+            scrollTrigger: {
+              trigger: ".footer-top-name",
+              start: "top 85%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse",
+            },
+          });
+
+          // Animate footer hr line
+          gsap.from(".footer-top-name hr", {
+            opacity: 0,
+            width: 0,
+            duration: 0.8,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: ".footer-top-name",
+              start: "top 80%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse",
+            },
+          });
+
+          // Animate footer container
+          gsap.from(".footer-container", {
+            opacity: 0,
+            y: 30,
+            duration: 0.8,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: ".footer-container",
+              start: "top 85%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse",
+            },
+          });
+
+          // Animate footer contact section
+          gsap.from(".footer-contact", {
+            opacity: 0,
+            x: -50,
+            duration: 0.8,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: ".footer-contact",
+              start: "top 85%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse",
+            },
+          });
+
+          // Animate footer contact links with stagger
+          gsap.from(".footer-contact a", {
+            opacity: 0,
+            x: -30,
+            duration: 0.6,
+            ease: "power2.out",
+            stagger: 0.15,
+            scrollTrigger: {
+              trigger: ".footer-contact",
+              start: "top 80%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse",
+            },
+          });
+
+          // Animate footer contact span
+          gsap.from(".footer-contact span", {
+            opacity: 0,
+            y: 20,
+            duration: 0.6,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: ".footer-contact",
+              start: "top 75%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse",
+            },
+          });
+
+          // Animate footer meta section
+          gsap.from(".footer-meta", {
+            opacity: 0,
+            x: 50,
+            duration: 0.8,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: ".footer-meta",
+              start: "top 85%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse",
+            },
+          });
+
+          // Animate footer meta text with stagger
+          gsap.from(".footer-meta span", {
+            opacity: 0,
+            x: 30,
+            duration: 0.6,
+            ease: "power2.out",
+            stagger: 0.1,
+            scrollTrigger: {
+              trigger: ".footer-meta",
+              start: "top 80%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse",
+            },
+          });
+
+          // Animate footer bottom section
+          gsap.from(".footer-bottom", {
+            opacity: 0,
+            y: 30,
+            duration: 0.8,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: ".footer-bottom",
+              start: "top 90%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse",
+            },
+          });
+
+          // Add hover animations for footer contact links
+          const addFooterLinkHover = () => {
+            const footerLinks = document.querySelectorAll(".footer-contact a");
+            footerLinks.forEach((link) => {
+              link.addEventListener("mouseenter", () => {
+                gsap.to(link, {
+                  x: 5,
                   duration: 0.3,
                   ease: "power2.out",
                 });
               });
 
-              card.addEventListener("mouseleave", () => {
-                // Resume floating animation
-                gsap.to(card, {
-                  y: "random(-10, -20)",
-                  duration: "random(2, 3)",
-                  ease: "sine.inOut",
-                  repeat: -1,
-                  yoyo: true,
+              link.addEventListener("mouseleave", () => {
+                gsap.to(link, {
+                  x: 0,
+                  duration: 0.3,
+                  ease: "power2.out",
                 });
               });
             });
+          };
 
-            // Add hover animations for buttons
-            document
-              .querySelectorAll("#services .btn button")
-              .forEach((button) => {
-                button.addEventListener("mouseenter", () => {
-                  gsap.to(button, {
-                    scale: 1.05,
-                    duration: 0.2,
-                    ease: "power2.out",
-                  });
-                });
-
-                button.addEventListener("mouseleave", () => {
-                  gsap.to(button, {
-                    scale: 1,
-                    duration: 0.2,
-                    ease: "power2.out",
-                  });
+          // Add hover animations for footer logo
+          const addFooterLogoHover = () => {
+            const footerLogo = document.querySelector(".footer-top-name svg");
+            if (footerLogo) {
+              footerLogo.addEventListener("mouseenter", () => {
+                gsap.to(footerLogo, {
+                  scale: 1.1,
+                  rotation: 5,
+                  duration: 0.3,
+                  ease: "power2.out",
                 });
               });
-          }, 1600);
-        }, 500);
+
+              footerLogo.addEventListener("mouseleave", () => {
+                gsap.to(footerLogo, {
+                  scale: 1,
+                  rotation: 0,
+                  duration: 0.3,
+                  ease: "power2.out",
+                });
+              });
+            }
+          };
+
+          // Initialize hover effects after a delay
+          setTimeout(() => {
+            addFooterLinkHover();
+            addFooterLogoHover();
+          }, 200);
+        }, 2200);
       });
     </script>
   </body>

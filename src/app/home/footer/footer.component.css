@@ -32,6 +32,9 @@
     text-align: center;
     position: relative;
     z-index: 1;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
 }
 
 .footer-top-name h2 {
@@ -52,6 +55,9 @@
     position: relative;
     z-index: 1;
     padding: 20px 0;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
 }
 
 /* Contact */
@@ -64,6 +70,9 @@
     opacity: 0.85;
     transition: opacity 0.3s ease;
     padding: 0 2vw;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
 }
 
 .footer-contact a:not(:last-child) {
@@ -91,6 +100,9 @@
             transparent);
     opacity: 0;
     transition: opacity 0.35s ease;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
 }
 
 .footer-contact a:hover::after {
@@ -102,6 +114,9 @@
     font-size: 13px;
     color: #111;
     margin-top: 16px;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
 }
 
 /* Meta */
@@ -111,6 +126,9 @@
     color: #7a7a7a;
     margin-bottom: 10px;
     letter-spacing: 0.4px;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
 }
 
 /* Bottom */
@@ -121,6 +139,9 @@
     font-size: 14px;
     color: #666;
     text-align: center;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
 }
 
 .footer-bottom::before {
@@ -143,6 +164,9 @@
 
     .footer-top-name {
         margin: 0 auto 8vw;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
     }
 
     .footer-top-name h2 {
@@ -168,6 +192,9 @@
         width: 100%;
         border-right: none !important;
         border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
     }
 
     .footer-contact a:last-child {
@@ -182,6 +209,9 @@
     .footer-contact span {
         font-size: 3.8vw;
         margin-top: 3vw;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
     }
 
     .footer-meta {
@@ -192,12 +222,18 @@
         font-size: 3.5vw;
         line-height: 1.6;
         margin-bottom: 4vw;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
     }
 
     .footer-bottom {
         margin-top: 8vw;
         padding-top: 6vw;
         font-size: 3.2vw;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
     }
 
     .footer-bottom::before {

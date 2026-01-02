@@ -20,6 +20,9 @@
     margin-top: 20px;
     text-align: center;
     min-width: 150px;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
     box-shadow:
         0 2px 4px rgba(255, 255, 255, 0.05),
         0 18px 35px rgba(0, 0, 0, 0.6),
@@ -200,5 +203,8 @@
         font-size: 0.9rem;
         margin: 20px auto 0;
         display: block;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
     }
 }
