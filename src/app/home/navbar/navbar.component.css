@@ -15,7 +15,11 @@ audio {
     padding-top: 0vw;
     position: relative;
     overflow: hidden;
-
+    background-image: url("https://complicated-maroon-8ihp3vxmur.edgeone.app/1770822665388.png");
+    background-size: cover;
+    /* move image a bit to the left side */
+    background-position: 10% center;
+    background-repeat: no-repeat;
     display: flex;
     align-items: center;
     /* vertical center is fine */
@@ -26,13 +30,7 @@ audio {
 }
 
 .background-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
+    display: none;
 }
 
 /* Optional dark overlay for readability */
@@ -46,7 +44,7 @@ audio {
 .home-content {
     /* above overlay */
     color: #ffffff;
-    text-align: center;
+    text-align: left;
     z-index: 1;
     display: flex;
 
@@ -55,31 +53,18 @@ audio {
 .home-title {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     width: 100%;
     margin-bottom: 4vw;
     gap: 2vw;
 }
 
-.left-side {
-    flex: 1;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.middle-gap {
-    flex: 1;
-    min-width: 20%;
-    /* This creates the gap where your face is visible */
-}
-
-.right-side {
+.single-side {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-end;
+    align-items: flex-start;
     gap: 1vw;
 }
 
@@ -92,10 +77,15 @@ audio {
 }
 
 .home-content h1 {
-    font-size: 3vw;
+    font-size: 2vw;
     letter-spacing: .5vw;
     margin-bottom: 0px;
     font-family: "BBH Bartle";
+}
+
+/* Make "I'm Dudhisty" slightly smaller than the main hello text */
+.line2 {
+    font-size: .4vw;
 }
 
 .home-content p {
@@ -114,9 +104,9 @@ audio {
     align-items: center;
     padding: 0vw;
     gap: 2vw;
-    margin-left: auto;
-    margin-right: 0vw;
-    justify-content: flex-end;
+    margin-left: 0;
+    margin-right: 0;
+    justify-content: flex-start;
 }
 
 .i1 {
@@ -137,7 +127,7 @@ audio {
 
 .buttons {
     display: flex;
-    margin-left: 25vw;
+    margin-left: 0;
     padding: .6vw 0vw;
 }
 
